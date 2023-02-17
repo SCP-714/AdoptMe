@@ -1,17 +1,29 @@
-const Pet = () => {
+const Pet = (props) => {
     return React.createElement("div", {}, [
-        React.createElement("h1", {}, "Bailey"),
-        React.createElement("h2", {}, "Dog"),
-        React.createElement("h2", {}, "Golden Retriever"),
+        React.createElement("h1", {}, props.name),
+        React.createElement("h2", {}, props.animal),
+        React.createElement("h2", {}, props.breed),
     ])
 };
 
 const App = () => {
     return React.createElement("div", {}, [
         React.createElement("h1", {}, "Adopt Me!"),
-        React.createElement(Pet),
-        React.createElement(Pet),
-        React.createElement(Pet),
+        React.createElement(Pet, {
+            animal: "Dog",
+            name: "Bailey",
+            breed: "Golden Retriever"
+        }),
+        React.createElement(Pet, {
+            animal: "Cat",
+            name: "Momo",
+            breed: "Siamese"
+        }),
+        React.createElement(Pet, {
+            animal: "Dog",
+            name: "spot",
+            breed: "Dalmatian"
+        }),
       ]);
 };
 
