@@ -1,0 +1,23 @@
+{
+  "name": "adoptme",
+  "version": "1.0.0",
+  "description": "Intro to react pet adoption application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SCP-714/AdoptMe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SCP-714/AdoptMe/issues"
+  },
+  "homepage": "https://github.com/SCP-714/AdoptMe#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
