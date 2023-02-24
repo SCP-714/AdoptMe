@@ -1,4 +1,5 @@
-import { React, useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 const SearchParams = () => {
   const [location, setLocation] = useState("Nashville, TN");
