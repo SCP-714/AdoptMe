@@ -4,8 +4,10 @@ import { useState } from "react";
 const ANIMALS = ["brid", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
-  let [location, setLocation] = useState("Nashville, TN");
-  let [animal, setAnimal] = useState("");
+  const [location, setLocation] = useState("Nashville, TN");
+  const [animal, setAnimal] = useState("");
+  const [breed, setBreed] = useState("");
+  const breeds =[];
 
   return (
     <div className="search-params">
@@ -26,11 +28,28 @@ const SearchParams = () => {
             value={animal}
             onChange={(e) => {
               setAnimal(e.target.value);
+              setBreed("");
             }}
           >
             <option />
             {ANIMALS.map(animal => (
                 <option key={animal}>{animal}</option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="breed">
+          Breed
+          <select
+            id="breed"
+            disabled={breeds.length === 0}
+            value={breed}
+            onChange={(e) => {
+              setBreed(e.target.value);
+            }}
+          >
+            <option />
+            {breeds.map(breed => (
+                <option key={breed}>{breed}</option>
             ))}
           </select>
         </label>
