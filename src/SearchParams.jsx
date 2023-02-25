@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Pet from "./Pet";
 import useBreedList from "./useBreedList";
-const ANIMALS = ["brid", "cat", "dog", "rabbit", "reptile"];
+const ANIMALS = ["cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [location, setLocation] = useState("Nashville, TN");
@@ -24,10 +24,14 @@ const SearchParams = () => {
     setPets(json.pets);
   }
 
-
   return (
     <div className="search-params">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location">
           Location
           <input
@@ -71,15 +75,14 @@ const SearchParams = () => {
         </label>
         <button>Submit</button>
       </form>
-      {
-  pets.map((pet) => (
-    <Pet 
-    name={pet.name} 
-    animal={pet.animal} 
-    breed={pet.breed} 
-    key={pet.id} />
-  ))
-}
+      {pets.map((pet) => (
+        <Pet
+          name={pet.name}
+          animal={pet.animal}
+          breed={pet.breed}
+          key={pet.id}
+        />
+      ))}
     </div>
   );
 };
