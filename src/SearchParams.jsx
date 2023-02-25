@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Pet from "./Pet";
 
 const ANIMALS = ["brid", "cat", "dog", "rabbit", "reptile"];
 
@@ -12,7 +13,7 @@ const SearchParams = () => {
 
   useEffect(() => {
     requestPets();
-  });
+  }, []);
 
   async function requestPets() {
     const res = await fetch(
@@ -23,7 +24,7 @@ const SearchParams = () => {
     setPets(json.pets);
   }
 
-  
+
   return (
     <div className="search-params">
       <form>
@@ -70,6 +71,15 @@ const SearchParams = () => {
         </label>
         <button>Submit</button>
       </form>
+      {
+  pets.map((pet) => (
+    <Pet 
+    name={pet.name} 
+    animal={pet.animal} 
+    breed={pet.breed} 
+    key={pet.id} />
+  ))
+}
     </div>
   );
 };
