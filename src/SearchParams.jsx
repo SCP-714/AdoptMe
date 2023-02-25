@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ANIMALS = ["brid", "cat", "dog", "rabbit", "reptile"];
 
@@ -7,8 +7,23 @@ const SearchParams = () => {
   const [location, setLocation] = useState("Nashville, TN");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
-  const breeds =[];
+  const [pets, setPets] = useState([]);
+  const breeds = [];
 
+  useEffect(() => {
+    requestPets();
+  });
+
+  async function requestPets() {
+    const res = await fetch(
+      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+    );
+    const json = await res.json();
+
+    setPets(json.pets);
+  }
+
+  
   return (
     <div className="search-params">
       <form>
@@ -32,8 +47,8 @@ const SearchParams = () => {
             }}
           >
             <option />
-            {ANIMALS.map(animal => (
-                <option key={animal}>{animal}</option>
+            {ANIMALS.map((animal) => (
+              <option key={animal}>{animal}</option>
             ))}
           </select>
         </label>
@@ -48,8 +63,8 @@ const SearchParams = () => {
             }}
           >
             <option />
-            {breeds.map(breed => (
-                <option key={breed}>{breed}</option>
+            {breeds.map((breed) => (
+              <option key={breed}>{breed}</option>
             ))}
           </select>
         </label>
