@@ -21,4 +21,5 @@ const Pet = ({name, animal, breed, images, location, id}) => {
     );
   };
   
+  
   export default Pet;
