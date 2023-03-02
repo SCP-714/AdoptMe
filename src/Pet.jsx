@@ -17,6 +17,7 @@ const Pet = ({name, animal, breed, images, location, id}) => {
           {animal} - {breed} - {location}
          </h2>
         </div>
+        
       </a>
     );
   };
