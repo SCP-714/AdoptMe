@@ -12,6 +12,7 @@ const App = () => {
     <Route path="/details/:id" element={<Details />} />
     <Route path="/" element={<SearchParams />} />
   </Routes>
+  
 </BrowserRouter>
   );
 };
