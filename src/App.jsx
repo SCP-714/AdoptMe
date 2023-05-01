@@ -13,6 +13,7 @@ const App = () => {
     <Route path="/" element={<SearchParams />} />
   </Routes>
   
+  
 </BrowserRouter>
   );
 };
