@@ -21,6 +21,7 @@ const pets = results?.data?.pets ?? [];
   return (
     <div className="search-params">
       <form
+      
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
