@@ -21,7 +21,7 @@ const pets = results?.data?.pets ?? [];
   return (
     <div className="search-params">
       <form
-      
+
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
@@ -37,6 +37,7 @@ const pets = results?.data?.pets ?? [];
           Location
           <input
             name="location"
+            
             id="location"
             placeholder="Location"
           />
